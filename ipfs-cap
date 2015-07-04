@@ -63,3 +63,5 @@ out="http://gateway.ipfs.io/ipfs/$dir/$name"
 echo "$out" | pbcopy
 log "copied\n"
 echo "$out"
+
+curl "$out" 2>/dev/null >/dev/null || true
