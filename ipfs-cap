@@ -1,0 +1,64 @@
+#!/bin/sh
+set -e
+
+usage() {
+  echo "$0 [-v] [<name>]"
+  echo "publish screenshot to ipfs."
+  exit 0
+}
+
+die() {
+  echo >&2 "error: $@"
+  exit 1
+}
+
+log() {
+  if [ $verbose ]; then
+    printf >&2 "$@"
+  fi
+}
+
+# get user options
+while [ $# -gt 0 ]; do
+  # get options
+  arg="$1"
+  shift
+
+  case "$arg" in
+  -h) usage ;;
+  --help) usage ;;
+  -v) verbose=1 ;;
+  --verbose) verbose=1 ;;
+  --*)
+    die "unrecognised option: '$arg'\n$usage" ;;
+  *)
+    if [ "$name" == "" ]; then
+      name="$arg"
+    else
+      die "too many arguments"
+    fi
+    ;;
+  esac
+done
+
+
+if [ "$name" == "" ]; then
+  name=screencap.$(date +"%Y-%m-%dT%H:%M:%SZ").png
+fi
+
+log "capturing screen..."
+img=$(screencap | ipfs add -q)
+log " $img\n"
+
+
+log "constructing dir..."
+dir=$(ipfs object new unixfs-dir)
+dir=$(ipfs object patch "$dir" add-link "$name" "$img" )
+pin=$(ipfs pin add -r "$dir")
+log " $dir\n"
+
+log "copying url to clipboard... "
+out="http://gateway.ipfs.io/ipfs/$dir/$name"
+echo "$out" | pbcopy
+log "copied\n"
+echo "$out"

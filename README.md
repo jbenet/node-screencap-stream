@@ -50,3 +50,25 @@ And for a publish one-liner
 ```
 echo "http://gateway.ipfs.io/ipfs/"$(screencap | ipfs add -q)
 ```
+
+## `ipfs-cap` binary
+
+Capture screenshots, publish them to [IPFS](http://ipfs.io), and copy the link to the clipboard.
+
+
+Examples:
+```sh
+# default name based on date
+> ipfs-cap
+http://gateway.ipfs.io/ipfs/QmfV9gpmi9yT4J4fWWJH2xdrAUYbmn3JYZPWCN5hsMnA9A/screencap.2015-07-04T01:21:00Z.png
+
+# name argument
+> ipfs-cap laser-raptor.png
+http://gateway.ipfs.io/ipfs/QmdCcY49eXipYJQpZL2yAuu2Jv8QbddJE2Zub3cfwc3aPz/laser-raptor.png
+```
+
+Install it with:
+
+```
+npm install -g screencap-stream
+```
