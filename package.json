@@ -1,0 +1,30 @@
+{
+  "name": "screencap-stream",
+  "version": "1.0.0",
+  "description": "screen capture streams",
+  "main": "index.js",
+  "bin": {
+    "screencap": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbenet/node-screencap-stream.git"
+  },
+  "keywords": [
+    "screencap",
+    "screenshot",
+    "streams",
+    "stream",
+    "screen",
+    "capture"
+  ],
+  "author": "Juan Benet <juan@benet.ai> (http://juan.benet.ai/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbenet/node-screencap-stream/issues"
+  },
+  "homepage": "https://github.com/jbenet/node-screencap-stream"
+}
