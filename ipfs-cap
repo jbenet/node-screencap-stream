@@ -1,5 +1,6 @@
 #!/bin/sh
 set -e
+set -o pipefail
 
 usage() {
   echo "$0 [-v] [<name>]"
@@ -48,9 +49,6 @@ fi
 
 log "capturing screen..."
 img=$(screencap | ipfs add -q)
-if [ $? -eq 0 ]; then
-  die "failed to take screenshot"
-fi
 log " $img\n"
 
 
