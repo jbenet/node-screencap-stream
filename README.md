@@ -65,6 +65,13 @@ http://gateway.ipfs.io/ipfs/QmfV9gpmi9yT4J4fWWJH2xdrAUYbmn3JYZPWCN5hsMnA9A/scree
 # name argument
 > ipfs-cap laser-raptor.png
 http://gateway.ipfs.io/ipfs/QmdCcY49eXipYJQpZL2yAuu2Jv8QbddJE2Zub3cfwc3aPz/laser-raptor.png
+
+# verbose
+> ipfs-cap -v hacking-too-much-time.png
+capturing screen... QmRT4WfAYmt6EQmSWLNwjk9TU75ENV3JZum2PtGPq5V63R
+constructing dir... Qmao3bK722MJ1eur89caxvJZ32FChyvRPi6QyBsibuKVEg
+copying url to clipboard... copied
+http://gateway.ipfs.io/ipfs/Qmao3bK722MJ1eur89caxvJZ32FChyvRPi6QyBsibuKVEg/hacking-too-much-time.png
 ```
 
 Install it with:
